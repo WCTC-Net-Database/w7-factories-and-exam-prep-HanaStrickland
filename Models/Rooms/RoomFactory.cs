@@ -21,6 +21,8 @@ namespace W7_assignment_template.Models.Rooms
                     return new Room("Armory", "Weapons and armor line the walls.", outputManager);
                 case "garden":
                     return new Room("Garden", "A peaceful garden with blooming flowers.", outputManager);
+                case "parlor":
+                    return new Room("Parlor", "A room with fine furniture.", outputManager);
                 default:
                     return new Room("Generic Room", "A simple room.", outputManager);
 

@@ -70,6 +70,7 @@ namespace W7_assignment_template.Services
             var library = _roomFactory.CreateRoom("library", _outputManager);
             var armory = _roomFactory.CreateRoom("armory", _outputManager);
             var garden = _roomFactory.CreateRoom("garden", _outputManager);
+            var parlor = _roomFactory.CreateRoom("parlor", _outputManager);
 
             // Link rooms together
             entrance.North = treasureRoom;
@@ -79,11 +80,13 @@ namespace W7_assignment_template.Services
             armory.West = library;
             entrance.West = library;
             entrance.East = garden;
+            entrance.South = parlor;
+            parlor.North = entrance;
             garden.West = entrance;
             dungeonRoom.East = treasureRoom;
 
             // Store rooms in a list for later use
-            _rooms = new List<IRoom> { entrance, treasureRoom, dungeonRoom, library, armory, garden };
+            _rooms = new List<IRoom> { entrance, treasureRoom, dungeonRoom, library, armory, garden, parlor };
 
             return entrance; // Starting room
         }
