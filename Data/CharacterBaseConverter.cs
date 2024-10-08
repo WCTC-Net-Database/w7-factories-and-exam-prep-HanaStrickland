@@ -25,6 +25,7 @@ public class CharacterBaseConverter : JsonConverter<CharacterBase>
                 "W7_assignment_template.Models.Characters.Player" => typeof(Player),
                 "W7_assignment_template.Models.Characters.Goblin" => typeof(Goblin),
                 "W7_assignment_template.Models.Characters.Ghost" => typeof(Ghost),
+                "W7_assignment_template.Models.Characters.Vampire" => typeof(Vampire),
                 _ => throw new NotSupportedException($"Type {typeProperty} is not supported")
             };
             var character = (CharacterBase)JsonSerializer.Deserialize(root.GetRawText(), type, options);

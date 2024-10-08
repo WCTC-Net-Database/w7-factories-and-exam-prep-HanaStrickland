@@ -15,6 +15,7 @@ namespace W7_assignment_template.Services
 
         private CharacterBase _player;
         private CharacterBase _goblin;
+        private CharacterBase _vampire;
         private List<IRoom> _rooms;
 
         public GameEngine(IContext context, IRoomFactory roomFactory, MenuManager menuManager, MapManager mapManager, OutputManager outputManager)
@@ -101,6 +102,13 @@ namespace W7_assignment_template.Services
             randomRoom.Characters.Add(_goblin);
 
             _outputManager.WriteLine($"{_goblin.Name} has entered {randomRoom.Name}.", ConsoleColor.Red);
+
+            randomRoom = _rooms[random.Next(_rooms.Count)];
+            _vampire = _context.Characters.OfType<Vampire>().FirstOrDefault();
+            _vampire.CurrentRoom = randomRoom;
+            randomRoom.Characters.Add(_vampire);
+
+            _outputManager.WriteLine($"{_vampire.Name} has entered the {randomRoom.Name}.");
         }
 
         // Game loop that handles movement and interaction

@@ -47,5 +47,13 @@
     "Level": 2,
     "HP": 8,
     "Treasure": null
+  },
+  {
+    "$type": "W7_assignment_template.Models.Characters.Vampire",
+    "Name": "Lester the Scary Vampire",
+    "Type": "Vampire",
+    "Level": 3,
+    "HP": 12,
+    "Treasure": "dagger"
   }
 ]

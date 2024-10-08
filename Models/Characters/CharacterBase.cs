@@ -29,7 +29,10 @@ namespace W7_assignment_template.Models.Characters
 
         public void Attack(ICharacter target)
         {
-            OutputManager.WriteLine($"{Name} attacks {target.Name} with a chilling touch.", ConsoleColor.Blue);
+            if (target is IFlyable)
+            {
+                ((Vampire)target).Fly();
+            }
 
             if (this is Player player && target is ILootable targetWithTreasure && !string.IsNullOrEmpty(targetWithTreasure.Treasure))
             {
